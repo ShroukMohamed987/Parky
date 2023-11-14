@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\parky_project.API.props" />
+</Project>

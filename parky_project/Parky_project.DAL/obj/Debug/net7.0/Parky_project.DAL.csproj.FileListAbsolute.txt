@@ -1,0 +1,14 @@
+D:\courses\projects\parky\parky_project\Parky_project.DAL\bin\Debug\net7.0\Parky_project.DAL.deps.json
+D:\courses\projects\parky\parky_project\Parky_project.DAL\bin\Debug\net7.0\Parky_project.DAL.runtimeconfig.json
+D:\courses\projects\parky\parky_project\Parky_project.DAL\bin\Debug\net7.0\Parky_project.DAL.dll
+D:\courses\projects\parky\parky_project\Parky_project.DAL\bin\Debug\net7.0\Parky_project.DAL.pdb
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.csproj.AssemblyReference.cache
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.AssemblyInfoInputs.cache
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.AssemblyInfo.cs
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.csproj.CoreCompileInputs.cache
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.dll
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\refint\Parky_project.DAL.dll
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.pdb
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\Parky_project.DAL.genruntimeconfig.cache
+D:\courses\projects\parky\parky_project\Parky_project.DAL\obj\Debug\net7.0\ref\Parky_project.DAL.dll
