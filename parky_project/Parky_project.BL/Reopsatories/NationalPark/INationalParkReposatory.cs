@@ -10,11 +10,11 @@ namespace Parky_project.BL.NationalParkReopsatory
 {
     public interface INationalParkReposatory
     {
-       Task< ICollection<NationalParkDto>> GetAllNationalParks();
+       Task< ICollection<NationalParkDto>> GetAllNationalParks( int? PageNumber);
         Task< NationalParkDto?> GetNationalPark(int id);
         Task GetNationalPark(string name);
         Task AddNationalPark(NationalParkDto nationalPark);
-        Task DeleteNationalPark(NationalParkDto nationalPark);
+        Task DeleteNationalPark(int id);
         Task UpdateNationalPark(int id, NationalParkDto nationalPark);
         Task NationalParkExist(string  name);
         Task SaveChanges();

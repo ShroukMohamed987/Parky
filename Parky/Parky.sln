@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parky", "Parky\Parky.csproj", "{C02CEE41-7677-4F8C-8B54-B8E72576AE37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parky.BL", "Parky.BL\Parky.BL.csproj", "{C0410FF9-4974-4797-9106-D33BF32E7398}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parky.DAL", "Parky.DAL\Parky.DAL.csproj", "{9F13AFF6-E449-4C5A-AFC9-5FA1BF5543DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C02CEE41-7677-4F8C-8B54-B8E72576AE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02CEE41-7677-4F8C-8B54-B8E72576AE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02CEE41-7677-4F8C-8B54-B8E72576AE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02CEE41-7677-4F8C-8B54-B8E72576AE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0410FF9-4974-4797-9106-D33BF32E7398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0410FF9-4974-4797-9106-D33BF32E7398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0410FF9-4974-4797-9106-D33BF32E7398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0410FF9-4974-4797-9106-D33BF32E7398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F13AFF6-E449-4C5A-AFC9-5FA1BF5543DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F13AFF6-E449-4C5A-AFC9-5FA1BF5543DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F13AFF6-E449-4C5A-AFC9-5FA1BF5543DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F13AFF6-E449-4C5A-AFC9-5FA1BF5543DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C0EF736-3FCE-4941-B032-7396A6DD0251}
+	EndGlobalSection
+EndGlobal

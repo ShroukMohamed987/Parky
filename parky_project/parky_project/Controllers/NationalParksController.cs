@@ -1,5 +1,8 @@
-﻿using AutoMapper;
+﻿using Asp.Versioning;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using parky_project.API.Models;
 using Parky_project.BL.NationalParkReopsatory;
@@ -7,14 +10,16 @@ using Parky_project.DAL.Dtos;
 
 namespace parky_project.API.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    // [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}[controller]")]
     [ApiController]
-    public class NationalParksController : ControllerBase
+    public class NationalParksController : Controller
     {
         #region injection
         private readonly INationalParkReposatory _nationalParkRepo;
-        private readonly Mapper _mapper;
-        public NationalParksController(INationalParkReposatory nationalParkRepo,Mapper mapper)
+        private readonly IMapper _mapper;
+        public NationalParksController(INationalParkReposatory nationalParkRepo,IMapper mapper)
         {
             _mapper = mapper;
             _nationalParkRepo= nationalParkRepo;
@@ -24,27 +29,21 @@ namespace parky_project.API.Controllers
         #endregion
 
         [HttpGet]
-        public async Task< ActionResult<IEnumerable<NationalParkDto>>> GetAllNationalParks() 
+        [Route("All/{pageNumber}")]
+        public async Task< ActionResult<IEnumerable<NationalParkDto>>> GetAllNationalParks(int pageNumber) 
         {
             
 
-            return Ok(await _nationalParkRepo.GetAllNationalParks());
+            return Ok(await _nationalParkRepo.GetAllNationalParks(pageNumber));
 
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id}",Name = "GetNationPark")]
         public async Task< ActionResult<NationalParkDto>> GetNationPark(int id)
         {
             return Ok(await _nationalParkRepo.GetNationalPark(id));
-            //var nationalParkFromDb = _nationalParkRepo.GetNationalPark(id);
-            //if (nationalParkFromDb != null)
-            //{
-            //    var returendNationalPark = _mapper.Map<NationalParkDto>(nationalParkFromDb);
-            //    return Ok(returendNationalPark);
-
-            //}
-            //return NotFound();
+            
 
         }
 
@@ -66,12 +65,33 @@ namespace parky_project.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            // var addedNationalPark = _mapper.Map<NationalPark>(nationalParkDto);
             await _nationalParkRepo.AddNationalPark(nationalParkDto);
+            
             return Ok(nationalParkDto);
 
+            // if i return created at route but i use versioning 
 
+            //return CreatedAtRoute(Version=HttpContext.GetRequestedApiVersion().ToString())
+       
+        }
+        [Authorize(Policy ="Admin")]
+        [HttpPatch]
+        [Route("{id}")]
+        public async Task<ActionResult> UpdateNationalPark(int id ,NationalParkDto nationalParkDto)
+        {
+            await _nationalParkRepo.UpdateNationalPark(id,nationalParkDto);
+            
+            return NoContent();
+        }
 
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult> DeLeteNationalPark(int id)
+        {
+            
+            
+            await _nationalParkRepo.DeleteNationalPark(id);
+            return NoContent();
         }
 
 

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using parky_project.API.Models;
+using Parky_project.BL.Dtos.Trail;
 using Parky_project.DAL.Dtos;
+using Parky_project.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,14 @@ namespace Parky_project.BL.Mapping
                 .ForPath(des=>des.Created,src=>src.MapFrom(src=>src.Created))
                 .ForPath(des=>des.Established,src=>src.MapFrom(src=>src.Established))
                 .ReverseMap();
-            
+
+            CreateMap<Trail, TrailDto>()
+                .ForPath(des=>des.NationalParkDto,src=>src.MapFrom(src=>src.NationalPark))
+                .ReverseMap();
+            CreateMap<Trail, TrailAddDto>().ReverseMap();
+            CreateMap<Trail, TrailUpdateDto>().ReverseMap();
+
+
         }
     }
 }

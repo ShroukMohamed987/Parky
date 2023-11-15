@@ -9,8 +9,8 @@ namespace Parky_project.DAL.Dtos
 {
     public class NationalParkDto
     {
-        
-        
+        public  int id { get; set; }
+
         public string Name { get; set; } = string.Empty;
        
         public string State { get; set; } = string.Empty;

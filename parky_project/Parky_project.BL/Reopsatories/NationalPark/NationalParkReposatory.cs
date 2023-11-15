@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using parky_project.API.Models;
+
 using Parky_project.DAL.Context;
+
 using Parky_project.DAL.Dtos;
+using Parky_project.DAL.Models.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,17 +35,23 @@ namespace Parky_project.BL.NationalParkReopsatory
            
         }
 
-        public async Task DeleteNationalPark(NationalParkDto nationalParkDto)
+        public async Task DeleteNationalPark(int id)
         {
-            var DeletedNationalPark = mapper.Map<NationalPark>(nationalParkDto);
+            
 
-              context.NationalParks.Remove(DeletedNationalPark);
+            var DeletedNationalPark = context.NationalParks.FirstOrDefault(n=>n.id==id)!;
+            if(DeletedNationalPark == null || DeletedNationalPark.id != id)
+            {
+                throw new Exception("NO Data Found");
+            }
+
+            context.NationalParks.Remove(DeletedNationalPark);
               await SaveChanges();
 
             
         }
 
-        public async Task< ICollection<NationalParkDto>> GetAllNationalParks()
+        public async Task< ICollection<NationalParkDto>> GetAllNationalParks(int? PageNumber )
         {
             var nationalParks =  context.NationalParks.ToList();
             var NationalParksListInDto = new List<NationalParkDto>();
@@ -51,6 +60,10 @@ namespace Parky_project.BL.NationalParkReopsatory
                 NationalParksListInDto
                     .Add(mapper.Map<NationalParkDto>(nationalParkReturned));
             }
+
+            //pagination
+            int pageSize = 5;
+            NationalParksListInDto = Pagination<NationalParkDto>.create(NationalParksListInDto.AsQueryable(), PageNumber ?? 1, pageSize);
             return NationalParksListInDto;
 
             //return Ok(NationalParksListInDto);
@@ -88,12 +101,14 @@ namespace Parky_project.BL.NationalParkReopsatory
             await context.SaveChangesAsync();
         }
 
-        public async Task UpdateNationalPark(int id, NationalParkDto nationalParkDto)
+        public async Task UpdateNationalPark(int id,  NationalParkDto nationalParkDto)
         {
             var NationalParkFromDB= await context.NationalParks.FirstOrDefaultAsync(a => a.id == id);
-            if(NationalParkFromDB == null)
+
+            if(NationalParkFromDB != null && NationalParkFromDB.id == id)
             {
-                var MappedNationalParkToUpdated = mapper.Map<NationalParkDto>(NationalParkFromDB);
+                mapper.Map(nationalParkDto,NationalParkFromDB);
+                 
 
             }
             else

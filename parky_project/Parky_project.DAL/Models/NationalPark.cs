@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace parky_project.API.Models
 {
     public class NationalPark
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id{ get; set; }
         [Required]
         public string Name { get; set; } = string.Empty;
